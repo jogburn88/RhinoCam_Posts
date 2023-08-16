@@ -11,7 +11,9 @@ StartProcessingBlock = ("M48",
                         "**************************************",
                         "G09F1 (Tangency Factor 1 = Default)",
                         "G800 (Acceleration Macro 800 = Default)", "G90",
-                        "SET XSHIFT = [STOCK_LENGTH_X]")
+                        "SET XSHIFT = [STOCK_LENGTH_X]",
+                        "SET YSHIFT = [STOCK_LENGTH_Y]",
+                        "SET ZSHIFT = [STOCK_LENGTH_Z]")
 
 def SetBlockData(blockData: PostBlockData, value):
     block = '\n'
