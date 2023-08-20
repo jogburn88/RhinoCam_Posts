@@ -23,6 +23,8 @@ EndProcessingBlock = ("(Start sequence to send machine to home position)",
                       "G0 X0 Y0     (X and Y axis to home position)",
                       "M02")
 
+RapidMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
+
 def SetBlockData(blockData: PostBlockData, value):
     block = '\n'
     block = block.join(value) 
@@ -84,6 +86,7 @@ def OnCoolant(blockData: PostBlockData, globalData: PostGlobalData):
     return
     
 def OnRapidMotion(blockData: PostBlockData, globalData: PostGlobalData):
+    blockData.Set(RapidMotionBlock)
     return
     
 def OnLinearMotion(blockData: PostBlockData, globalData: PostGlobalData):
