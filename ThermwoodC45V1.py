@@ -25,7 +25,7 @@ EndProcessingBlock = ("(Start sequence to send machine to home position)",
 
 RapidMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
 FeedMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
-ClockwiseFeedBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_I][NEXT_J]"
+ClockwiseFeedBlock = "[G_CODE][NEXT_X][NEXT_Y]I[NEXT_I]J[NEXT_J]"
 
 def SetBlockData(blockData: PostBlockData, value):
     block = '\n'
