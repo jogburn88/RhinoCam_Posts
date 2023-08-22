@@ -60,7 +60,7 @@ MOTION_ScaleFactorY = 1.000000
 MOTION_ScaleFactorZ = 1.000000
 MOTION_NumOfDecimalPlaces = 4
 MOTION_LinearBlock = 
-MOTION_ShowMotionTrailingZeros = 0
+MOTION_ShowMotionTrailingZeros = 4
 MOTION_RapidBlockStart
 MOTION_RapidBlockEnd
 MOTION_OutputCutMacroBeforePlunge = 0
@@ -182,10 +182,10 @@ FEEDRATE_ScaleFactor = 1.000000
 FEEDRATE_NumOfDecimalPlaces = 3
 FEEDRATE_Block = F[FEEDRATE]
 FEEDRATE_OutputPlace = 1
-FEEDRATE_ShowTrailingZeros = 4
+FEEDRATE_ShowTrailingZeros = 2
 FEEDRATE_FeedScaleFactor = 1.000000
-FEEDRATE_FeedShowTrailingZeros = 4
-FEEDRATE_FeedNumOfDecimalPlaces = 1
+FEEDRATE_FeedShowTrailingZeros = 2
+FEEDRATE_FeedNumOfDecimalPlaces = 2
 FEEDRATE_ZScaleFactor = 1.000000
 FEEDRATE_UnitsPerRevolution = 
 FEEDRATE_UnitsPerMinute = 

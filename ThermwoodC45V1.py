@@ -26,6 +26,7 @@ EndProcessingBlock = ("(Start sequence to send machine to home position)",
 RapidMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
 FeedMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
 ClockwiseFeedBlock = "[G_CODE][NEXT_X][NEXT_Y]I[NEXT_I]J[NEXT_J]"
+SpeedBlock = "[FEEDRATE]"
 
 def SetBlockData(blockData: PostBlockData, value):
     block = '\n'
@@ -49,7 +50,6 @@ def OnMOpEnd(blockData: PostBlockData, globalData: PostGlobalData):
     return
     
 def OnComment(blockData: PostBlockData, globalData: PostGlobalData):
-    
     return
 
 # Setup types: 0 - Coordinate system change, 1 - Rotate Head, 2 - Rotate Table 
@@ -73,9 +73,11 @@ def OnWorkZero(blockData: PostBlockData, globalData: PostGlobalData):
     return
     
 def OnToolChange(blockData: PostBlockData, globalData: PostGlobalData):
+    blockData.Set("New tool change")
     return
     
 def OnSpindleSpeed(blockData: PostBlockData, globalData: PostGlobalData):
+    blockData.Set("S[SPINDLE_SPD]")
     return
     
 def OnFeedRate(blockData: PostBlockData, globalData: PostGlobalData):
