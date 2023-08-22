@@ -15,7 +15,7 @@ INFORMATION_Version = 12.000
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 GENERAL_StartReadingChar = %
 GENERAL_StopReadingChar = %
-GENERAL_UseSequencNo = 1
+GENERAL_UseSequencNo = 0
 GENERAL_PrefixLetter = N
 GENERAL_Increment = 1
 GENERAL_SequenceStartNo = 1
