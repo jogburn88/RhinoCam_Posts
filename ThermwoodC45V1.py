@@ -2,44 +2,14 @@ from post_ext import *
 
 PostProcVersion = 2021.2
 # Set base *.spm file to use; if a variable is removed, will be used default.spm
-BaseSPMFileName = "ThermwoodDefault.spm"
+BaseSPMFileName = "ThermwoodC45-Ogburn.spm"
 # Set output file ext., used if "File Extension from Post Processor" option is enabled
 GENERAL_OutputFileExt = ".nc"
 
-StartProcessingBlock = ("M48",
-                        "(Program Name = [OUTPUTFILE_NAME])",
-                        "**************************************",
-                        "G09F1 (Tangency Factor 1 = Default)",
-                        "G800 (Acceleration Macro 800 = Default)", 
-                        "G90",
-                        "SET XSHIFT = [STOCK_LENGTH_X]",
-                        "SET YSHIFT = [STOCK_LENGTH_Y]",
-                        "SET ZSHIFT = [STOCK_LENGTH_Z]")
-
-EndProcessingBlock = ("(Start sequence to send machine to home position)",
-                      "G990         (reset the machine coordinates)",
-                      "G90 G0 Z0    (Z axis to home position)",
-                      "M5           (turn OFF spindle)",
-                      "G0 X0 Y0     (X and Y axis to home position)",
-                      "M02")
-
-RapidMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
-FeedMotionBlock = "[G_CODE][NEXT_X][NEXT_Y][NEXT_Z]"
-ClockwiseFeedBlock = "[G_CODE][NEXT_X][NEXT_Y]I[NEXT_I]J[NEXT_J]"
-SpeedBlock = "[FEEDRATE]"
-
-def SetBlockData(blockData: PostBlockData, value):
-    block = '\n'
-    block = block.join(value) 
-    blockData.Set(block)
-
-
 def OnStartProcessing(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set(SetBlockData(blockData, StartProcessingBlock))
     return
     
 def OnEndProcessing(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set(SetBlockData(blockData, EndProcessingBlock))
     return
 
 # operation types: 1 - Holes, 2 - Holes 4Axis, 3/4/5 - 3/4/5 Axis operation 
@@ -73,11 +43,9 @@ def OnWorkZero(blockData: PostBlockData, globalData: PostGlobalData):
     return
     
 def OnToolChange(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set("New tool change")
     return
     
 def OnSpindleSpeed(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set("S[SPINDLE_SPD]")
     return
     
 def OnFeedRate(blockData: PostBlockData, globalData: PostGlobalData):
@@ -90,15 +58,12 @@ def OnCoolant(blockData: PostBlockData, globalData: PostGlobalData):
     return
     
 def OnRapidMotion(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set(RapidMotionBlock)
     return
     
 def OnLinearMotion(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set(FeedMotionBlock)
     return
     
 def OnCirclularMotion(blockData: PostBlockData, globalData: PostGlobalData):
-    blockData.Set(ClockwiseFeedBlock)
     return
     
 def OnSpiralMotion(blockData: PostBlockData, globalData: PostGlobalData):

@@ -165,7 +165,7 @@ SPINDLE_LowValue = 100.000000
 SPINDLE_ScaleFactor = 1.000000
 SPINDLE_NumOfDecimalPlaces = 2
 SPINDLE_Block = 
-SPINDLE_ShowSpindleTrailingZeros = 2
+SPINDLE_ShowSpindleTrailingZeros = 0
 SPINDLE_ConstantSurfaceSpeed = 
 SPINDLE_ConstantRotationSpeed = 
 
