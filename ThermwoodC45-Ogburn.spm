@@ -223,7 +223,7 @@ MISCELLANEOUS_CompensationOff = G40
 MISCELLANEOUS_CompensationLeft = G41
 MISCELLANEOUS_CompensationRight = G42
 MISCELLANEOUS_CompensationLength = G43
-MISCELLANEOUS_WorkOffset = G
+MISCELLANEOUS_WorkOffset = 
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
